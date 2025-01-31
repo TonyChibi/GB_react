@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import Notification from './Notification';
 import TemperatureConverter from './TemperatureConverter';
 import ToDoList from './ToDoList';
+import { BrowserRouter, Routes, Route } from "react-router";
+import Main from './Main';
+import About from './About';
 
 function App() {
   // let noteCount = useRef(0);
@@ -49,8 +52,17 @@ function App() {
           })}
           
         </ul> */}
-        <ToDoList />
-        <TemperatureConverter />
+        <BrowserRouter>
+
+
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+
+          <ToDoList />
+          <TemperatureConverter />
+        </BrowserRouter>
       </header>
     </div>
   );
